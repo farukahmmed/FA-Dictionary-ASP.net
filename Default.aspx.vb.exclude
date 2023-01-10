@@ -1,0 +1,26 @@
+﻿Imports System.Data
+
+Partial Class _Default
+    Inherits System.Web.UI.Page
+
+    Protected Sub WordListBox_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles WordListBox.SelectedIndexChanged
+        On Error Resume Next
+        MeaningImageBox.ImageUrl = "~/DicMeaning/" & WordListBox.SelectedItem.Text
+        PicImageBox.ImageUrl = "~/DicPicture/" & WordListBox.SelectedItem.Text & ".pc"
+    End Sub
+
+   
+    Protected Sub Search_Click(sender As Object, e As System.EventArgs) Handles Search.Click
+        On Error Resume Next
+        MeaningImageBox.ImageUrl = "~/DicMeaning/" & SearchTextBox.Text
+        PicImageBox.ImageUrl = "~/DicPicture/" & SearchTextBox.Text & ".pc"
+        WordListBox.SelectedValue = Nothing
+    End Sub
+
+    Protected Sub SearchTextBox_TextChanged(sender As Object, e As System.EventArgs) Handles SearchTextBox.TextChanged
+        On Error Resume Next
+        MeaningImageBox.ImageUrl = "~/DicMeaning/" & SearchTextBox.Text
+        PicImageBox.ImageUrl = "~/DicPicture/" & SearchTextBox.Text & ".pc"
+
+    End Sub
+End Class
